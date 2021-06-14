@@ -26,23 +26,19 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
-      body: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(
-            child: Image.asset('assets/blog-1.jpg'),
-          ),
-          Expanded(
-            flex: 2,
-            child: Image.asset('assets/blog-2.jpg'),
-          ),
-          Expanded(
-            child: Image.asset('assets/blog-3.jpg'),
-          ),
-        ],
+      body: Center(
+        child: IconButton(
+          icon: Icon((Icons.mail)),
+          color: Colors.amber,
+          onPressed: () {
+            print('you click me');
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          print('add member?');
+        },
         child: Icon((Icons.add)),
         backgroundColor: Colors.lightGreen[600],
       ),
