@@ -23,16 +23,7 @@ class Home extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Text(
-          'Hallo World!',
-          style: TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 2.0,
-            color: Colors.amber[600],
-            fontFamily: 'JosefinSans',
-          ),
-        ),
+        child: Image.asset('assets/blog-1.jpg'),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
