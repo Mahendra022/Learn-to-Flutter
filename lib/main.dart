@@ -11,45 +11,32 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white70,
-        actions: [
-          IconButton(
-            icon: Icon((Icons.favorite_outlined)),
-            color: Colors.pinkAccent,
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon((Icons.mail)),
-            color: Colors.black,
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: Row(
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              Text('Hallo'),
-              Text('World'),
-            ],
+          Container(
+            margin: EdgeInsets.fromLTRB(15, 0, 0.1, 0),
+            child: Image.asset('assets/gojek.png'),
+            width: 100,
+            height: 100,
           ),
           Container(
-            padding: EdgeInsets.all(20.0),
-            color: Colors.cyan,
-            child: Text('one'),
+            margin: EdgeInsets.fromLTRB(180, 0, 0, 0),
+            child: IconButton(
+              icon: Icon((Icons.favorite)),
+              color: Colors.pink,
+              onPressed: () {
+                print('This is favorit');
+              },
+            ),
           ),
           Container(
-            padding: EdgeInsets.all(30.0),
-            color: Colors.amber,
-            child: Text('Two'),
-          ),
-          Container(
-            padding: EdgeInsets.all(40.0),
-            color: Colors.green,
-            child: Text('Three'),
+            child: IconButton(
+              icon: Icon((Icons.mail)),
+              color: Colors.black,
+              onPressed: () {
+                print('This is massage');
+              },
+            ),
           )
         ],
       ),
