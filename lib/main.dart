@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
@@ -11,19 +12,34 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white70,
         actions: [
           IconButton(
             icon: Icon((Icons.favorite_outlined)),
+            color: Colors.pinkAccent,
             onPressed: () {},
           ),
           IconButton(
             icon: Icon((Icons.mail)),
+            color: Colors.black,
             onPressed: () {},
           ),
         ],
       ),
-      body: Center(
-        child: Image.asset('assets/blog-1.jpg'),
+      body: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Image.asset('assets/blog-1.jpg'),
+          ),
+          Expanded(
+            flex: 2,
+            child: Image.asset('assets/blog-2.jpg'),
+          ),
+          Expanded(
+            child: Image.asset('assets/blog-3.jpg'),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
