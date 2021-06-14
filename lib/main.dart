@@ -26,14 +26,23 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: IconButton(
-          icon: Icon((Icons.mail)),
-          color: Colors.amber,
-          onPressed: () {
-            print('you click me');
-          },
-        ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text('Hallo World!'),
+          // ignore: deprecated_member_use
+          FlatButton(
+            onPressed: () {},
+            color: Colors.amber,
+            child: Text('Click me'),
+          ),
+          Container(
+            color: Colors.blue,
+            padding: EdgeInsets.all(30.0),
+            child: Text('this containter'),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
