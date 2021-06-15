@@ -14,7 +14,7 @@ class QuoteList extends StatefulWidget {
 class _QuoteListState extends State<QuoteList> {
   List<Quote> quotes = [
     Quote(author: 'Mahendra', text: 'When you try learn english?'),
-    Quote(author: 'Mahendra', text: 'What do you think about english'),
+    Quote(author: 'Mahendra', text: 'What do you think about english?'),
     Quote(author: 'Mahendra', text: 'Tell you experiance to learn english?'),
   ];
 
@@ -28,7 +28,15 @@ class _QuoteListState extends State<QuoteList> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
+        children: quotes
+            .map((quote) => QuoteCard(
+                quote: quote,
+                delete: () {
+                  setState(() {
+                    quotes.remove(quote);
+                  });
+                }))
+            .toList(),
       ),
     );
   }
