@@ -4,7 +4,14 @@ void main() => runApp(MaterialApp(
       home: NinjaCard(),
     ));
 
-class NinjaCard extends StatelessWidget {
+class NinjaCard extends StatefulWidget {
+  @override
+  _NinjaCardState createState() => _NinjaCardState();
+}
+
+class _NinjaCardState extends State<NinjaCard> {
+  int idNumber = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,6 +22,15 @@ class NinjaCard extends StatelessWidget {
         backgroundColor: Colors.green[600],
         //for remove to shadow in the box:
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            idNumber += 1;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.green[400],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -64,7 +80,7 @@ class NinjaCard extends StatelessWidget {
               height: 10.0,
             ),
             Text(
-              '2764-5019-233',
+              '$idNumber',
               style: TextStyle(
                 color: Colors.amber,
                 letterSpacing: 2.0,
