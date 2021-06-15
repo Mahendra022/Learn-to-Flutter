@@ -12,10 +12,38 @@ class QuoteList extends StatefulWidget {
 
 class _QuoteListState extends State<QuoteList> {
   List<Quote> quotes = [
-    Quote(author: 'Osca Wilde', text: 'when you try learn english?'),
-    Quote(author: 'Osca Wilde', text: 'what do you think about english'),
-    Quote(author: 'Osca Wilde', text: 'tell you experiance to learn english?'),
+    Quote(author: 'Mahendra', text: 'When you try learn english?'),
+    Quote(author: 'Mahendra', text: 'What do you think about english'),
+    Quote(author: 'Mahendra', text: 'Tell you experiance to learn english?'),
   ];
+
+  Widget quoteTemplate(quote) {
+    return Card(
+      margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Text(
+              quote.text,
+              style: TextStyle(fontSize: 18.0, color: Colors.grey),
+            ),
+            SizedBox(
+              height: 6.0,
+            ),
+            Text(
+              quote.author,
+              style: TextStyle(
+                fontSize: 14.0,
+                color: Colors.grey[600],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +55,7 @@ class _QuoteListState extends State<QuoteList> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes
-            .map((quote) => Text('${quote.text} - ${quote.author}'))
-            .toList(),
+        children: quotes.map((quote) => quoteTemplate(quote)).toList(),
       ),
     );
   }
