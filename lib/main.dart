@@ -1,117 +1,35 @@
 import 'package:flutter/material.dart';
+import 'quote.dart';
 
 void main() => runApp(MaterialApp(
-      home: NinjaCard(),
+      home: QuoteList(),
     ));
 
-class NinjaCard extends StatefulWidget {
+class QuoteList extends StatefulWidget {
   @override
-  _NinjaCardState createState() => _NinjaCardState();
+  _QuoteListState createState() => _QuoteListState();
 }
 
-class _NinjaCardState extends State<NinjaCard> {
-  int idNumber = 0;
+class _QuoteListState extends State<QuoteList> {
+  List<Quote> quotes = [
+    Quote(author: 'Osca Wilde', text: 'when you try learn english?'),
+    Quote(author: 'Osca Wilde', text: 'what do you think about english'),
+    Quote(author: 'Osca Wilde', text: 'tell you experiance to learn english?'),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[700],
+      backgroundColor: Colors.grey[500],
       appBar: AppBar(
-        title: Text('ID Card'),
+        title: Text('Awesome Quotes'),
         centerTitle: true,
-        backgroundColor: Colors.green[600],
-        //for remove to shadow in the box:
-        elevation: 0.0,
+        backgroundColor: Colors.redAccent,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            idNumber += 1;
-          });
-        },
-        child: Icon(Icons.add),
-        backgroundColor: Colors.green[400],
-      ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Center(
-              child: CircleAvatar(
-                backgroundImage: AssetImage('assets/blog-1.jpg'),
-                radius: 40.0,
-              ),
-            ),
-            Divider(
-              height: 60.0,
-              color: Colors.green[400],
-            ),
-            Text(
-              'NAME',
-              style: TextStyle(
-                color: Colors.white,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              'Mahendra',
-              style: TextStyle(
-                color: Colors.amber,
-                letterSpacing: 2.0,
-                fontSize: 28.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 30.0,
-            ),
-            Text(
-              'ID',
-              style: TextStyle(
-                color: Colors.white,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              '$idNumber',
-              style: TextStyle(
-                color: Colors.amber,
-                letterSpacing: 2.0,
-                fontSize: 28.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 30.0,
-            ),
-            Row(
-              children: <Widget>[
-                Icon(
-                  Icons.email,
-                  color: Colors.white,
-                ),
-                SizedBox(
-                  width: 10.0,
-                ),
-                Text(
-                  'ekamahendra86@gmail.com',
-                  style: TextStyle(
-                    color: Colors.blue[900],
-                    fontSize: 18.0,
-                    letterSpacing: 1.0,
-                  ),
-                ),
-              ],
-            )
-          ],
-        ),
+      body: Column(
+        children: quotes
+            .map((quote) => Text('${quote.text} - ${quote.author}'))
+            .toList(),
       ),
     );
   }
