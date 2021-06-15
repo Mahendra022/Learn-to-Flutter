@@ -13,29 +13,32 @@ class Home extends StatelessWidget {
     return Scaffold(
       body: Row(
         children: <Widget>[
-          Container(
-            margin: EdgeInsets.fromLTRB(15, 0, 0.1, 0),
+          Expanded(
             child: Image.asset('assets/gojek.png'),
-            width: 100,
-            height: 100,
+            flex: 3,
           ),
-          Container(
-            margin: EdgeInsets.fromLTRB(180, 0, 0, 0),
-            child: IconButton(
-              icon: Icon((Icons.favorite)),
-              color: Colors.pink,
-              onPressed: () {
-                print('This is favorit');
-              },
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(30.0),
+              color: Colors.blue,
+              child: Text('1'),
             ),
           ),
-          Container(
-            child: IconButton(
-              icon: Icon((Icons.mail)),
-              color: Colors.black,
-              onPressed: () {
-                print('This is massage');
-              },
+          Expanded(
+            flex: 2,
+            child: Container(
+              padding: EdgeInsets.all(30.0),
+              color: Colors.amber,
+              child: Text('2'),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(30.0),
+              color: Colors.greenAccent,
+              child: Text('3'),
             ),
           )
         ],
